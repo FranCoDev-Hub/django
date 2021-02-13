@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bienvenido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  </head>
+  <body style="background-color: rgb(154, 67, 180);">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <li class="nav-item">
+              <h4 style="color: white;"> Bienvenido <b>{{request.user.username}} </b>, estas son las fechas que ingresaste al sistema</h4>
+            </li>
+        </div>
+        <a class="btn btn-warning" href="/logout">Cerrar sesión</a>
+      </div>
+    </nav> 
+
+
+    <div class="container">
+      <table style="margin-top: 10%; !important" class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Usuario</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for reg in registros %}
+          <tr>
+            <th scope="row">{{ reg.user }}</th>
+            <td scope="row">{{ reg.date_register }}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>  
+    </div>
+  </body>
+</html>
